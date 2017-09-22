@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.ListActivity"></activity>
+        <activity
+            android:name="com.foursquare.android.nativeoauth.TokenExchangeActivity"
+            android:theme="@android:style/Theme.Dialog" />
     </application>
 
 </manifest>
