@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ForEscuer</string>
+    <string name="log_in">Log In</string>
+    <string name="for_escuer">For Escuer</string>
+    <string name="to">to</string>
+    <string name="welcome">Welcome</string>
 </resources>
