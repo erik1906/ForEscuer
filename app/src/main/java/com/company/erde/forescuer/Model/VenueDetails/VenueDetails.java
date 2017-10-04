@@ -17,9 +17,6 @@ public class VenueDetails implements Serializable{
     @SerializedName("photos")
     Photos photos;
 
-    @SerializedName("listed")
-    Listed listed;
-
 
     public String getName() {
         return name;
@@ -44,12 +41,5 @@ public class VenueDetails implements Serializable{
     public void setPhotos(Photos photos) {
         this.photos = photos;
     }
-
-    public Listed getListed() {
-        return listed;
-    }
-
-    public void setListed(Listed listed) {
-        this.listed = listed;
-    }
+    
 }

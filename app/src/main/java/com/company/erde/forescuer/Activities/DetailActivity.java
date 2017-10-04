@@ -1,31 +1,22 @@
 package com.company.erde.forescuer.Activities;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.company.erde.forescuer.API.APIFourSquare;
 import com.company.erde.forescuer.API.FourSquare;
-import com.company.erde.forescuer.Adapters.RecyclerViewAdapter;
-import com.company.erde.forescuer.Model.Places;
 import com.company.erde.forescuer.Model.VenueDetails.VenueDetails;
 import com.company.erde.forescuer.Model.VenueDetails.VenueInfo;
-import com.company.erde.forescuer.Model.VenuesSearch.CatIcon;
-import com.company.erde.forescuer.Model.VenuesSearch.Venue;
-import com.company.erde.forescuer.Model.VenuesSearch.VenuesSearch;
 import com.company.erde.forescuer.R;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import retrofit2.Call;
@@ -38,7 +29,7 @@ public class DetailActivity extends AppCompatActivity {
     private FourSquare fourSquare;
     ImageView ivPhoto;
     TextView tvName;
-    TextView tvDescription;
+    TextView tvCity;
     TextView tvAddress;
 
     @Override
@@ -52,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
         ivPhoto = (ImageView) findViewById(R.id.ivPhoto);
         tvName =(TextView) findViewById(R.id.tvName);
 
-        tvDescription =(TextView) findViewById(R.id.tvDescription);
+        tvCity =(TextView) findViewById(R.id.tvCity);
         tvAddress =(TextView) findViewById(R.id.tvAddress);
 
         ActionBar actionBar = getSupportActionBar();
@@ -85,13 +76,16 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<VenueInfo> call, Response<VenueInfo> response) {
                 final VenueDetails res = response.body().getReponse().getVenue();
-                Log.d("Entra","entra");
+                //Log.d("Entra","entra");
                 tvName.setText(res.getName());
                 tvAddress.setText(res.getLocation().getAddress());
-                tvDescription.setText(res.getListed().getGroupsDesc()[0].getItemsDesc()[0].getDescription());
+                tvCity.setText(res.getLocation().getCity());
 
-                Picasso.with(getApplicationContext()).load(res.getPhotos().getGroups()[0].getItems()[0].getPrefix()+"300x300"+res.getPhotos().getGroups()[0].getItems()[0].getSuffic()).into(ivPhoto);
-
+                if(res.getPhotos().getCount() > 0) {
+                    Picasso.with(getApplicationContext()).load(res.getPhotos().getGroups()[0].getItems()[0].getPrefix() + "300x300" + res.getPhotos().getGroups()[0].getItems()[0].getSuffic()).into(ivPhoto);
+                }else{
+                    ivPhoto.setImageResource(R.drawable.image);
+                }
             }
 
             @Override

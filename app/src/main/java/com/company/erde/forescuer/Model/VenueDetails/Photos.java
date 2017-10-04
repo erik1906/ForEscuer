@@ -10,8 +10,11 @@ import java.io.Serializable;
 
 public class Photos implements Serializable{
 
+    private int count;
     @SerializedName("groups")
     Groups[] groups;
+
+
 
     public Groups[] getGroups() {
         return groups;
@@ -19,5 +22,13 @@ public class Photos implements Serializable{
 
     public void setGroups(Groups[] groups) {
         this.groups = groups;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
