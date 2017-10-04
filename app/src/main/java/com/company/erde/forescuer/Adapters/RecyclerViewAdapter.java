@@ -46,7 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(PlacesViewHolder holder, int position) {
         holder.tvPlaceName.setText(places.get(position).getName());
 
-        Picasso.with(holder.itemView.getContext()).load("http://i.imgur.com/DvpvklR.png").into(holder.ivPhoto);
+        Picasso.with(holder.itemView.getContext()).load(places.get(position).getImageURL()).into(holder.ivPhoto);
 
     }
 

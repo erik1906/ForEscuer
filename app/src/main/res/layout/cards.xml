@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/tvPlace"
@@ -27,6 +27,7 @@
                 android:layout_weight="1"
                 android:fontFamily="serif"
                 android:text="TextView"
+                android:textColor="@android:color/black"
                 android:textSize="24sp" />
 
             <ImageButton
@@ -35,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="false"
                 app:srcCompat="@drawable/cast_ic_mini_controller_stop_large" />
